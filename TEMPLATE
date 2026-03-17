@@ -1,0 +1,177 @@
+@page {
+  size: letter;
+  margin: 1cm;
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+/* TAMAÑO CARTA */
+@page {
+  size: letter;
+  margin: 1cm;
+}
+
+body{
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color:#000;
+}
+
+/* TITULO */
+.titulo{
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+/* TABLAS */
+.tabla{
+  width:100%;
+  border-collapse: collapse;
+  margin-top:8px;
+}
+
+.tabla td{
+  border:1px solid #000;
+  padding:6px;
+}
+
+.seccion{
+  margin-top:12px;
+  font-weight:bold;
+}
+
+/* IMAGENES */
+.img{
+  width:100%;
+  max-height:200px;
+  object-fit:contain;
+  margin-top:5px;
+}
+
+/* FIRMA */
+.firma{
+  margin-top:40px;
+  text-align:center;
+}
+
+.footer{
+  margin-top:20px;
+  font-size:10px;
+  text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<p class="titulo">ORDEN DE SERVICIO</p>
+
+<table class="tabla">
+<tr>
+<td><b>FECHA</b></td>
+<td><<[Fecha]>></td>
+</tr>
+</table>
+
+<p class="seccion">DATOS DEL CLIENTE</p>
+
+<table class="tabla">
+<tr>
+<td><b>CLIENTE</b></td>
+<td><<[Cliente]>></td>
+</tr>
+
+<tr>
+<td><b>OFICINA / EQUIPO</b></td>
+<td><<[Oficina]>></td>
+</tr>
+
+<tr>
+<td><b>DIRECCIÓN</b></td>
+<td><<[Direccion]>></td>
+</tr>
+</table>
+
+<p class="seccion">DATOS DEL EQUIPO</p>
+
+<table class="tabla">
+<tr>
+<td><b>MARCA</b></td>
+<td><<[Marca]>></td>
+<td><b>MODELO</b></td>
+<td><<[Modelo]>></td>
+</tr>
+
+<tr>
+<td><b>SERIE</b></td>
+<td colspan="3"><<[Serie]>></td>
+</tr>
+</table>
+
+<p class="seccion">LECTURA DE CONTADORES B/N</p>
+
+<table class="tabla">
+<tr>
+<td><b>CONTADOR ANTERIOR</b></td>
+<td><<[ContadorAnteriorBN]>></td>
+<td><b>CONTADOR ACTUAL</b></td>
+<td><<[ContadorActualBN]>></td>
+</tr>
+
+<tr>
+<td><b>CONSUMO B/N</b></td>
+<td colspan="3"><<[ConsumoBN]>></td>
+</tr>
+</table>
+
+<p class="seccion">LECTURA DE CONTADORES COLOR</p>
+
+<table class="tabla">
+<tr>
+<td><b>CONTADOR ANTERIOR</b></td>
+<td><<[ContadorAnteriorColor]>></td>
+<td><b>CONTADOR ACTUAL</b></td>
+<td><<[ContadorActualColor]>></td>
+</tr>
+
+<tr>
+<td><b>CONSUMO COLOR</b></td>
+<td colspan="3"><<[ConsumoColor]>></td>
+</tr>
+</table>
+
+<p class="seccion">OBSERVACIONES</p>
+
+<table class="tabla">
+<tr>
+<td><<[Observaciones]>></td>
+</tr>
+</table>
+
+<p class="seccion">EVIDENCIA FOTOGRÁFICA</p>
+
+<<Start: [Fotos]>>
+<img src="<<[URL]>>" class="img">
+<<End>>
+
+<div class="firma">
+<<If: ISNOTBLANK([Firma])>>
+<img src="<<[Firma]>>" width="150">
+<<End>>
+<p>___________________________</p>
+<p><<[Tecnico]>></p>
+</div>
+
+<div class="footer">
+<p>Copy Services SV | 7726-2968 | copyservices.sv@gmail.com</p>
+</div>
+
+</body>
+</html>
